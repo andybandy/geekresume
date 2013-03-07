@@ -1,0 +1,6 @@
+%p#notice= notice
+%p
+  = @resume.content_html.html_safe
+= link_to 'Edit', edit_resume_path(@resume)
+
+\#{link_to 'Back', resumes_path}

@@ -1,0 +1,14 @@
+%h1 Мои резюме
+%table.table
+  %tr
+    %th id
+    %th Действия
+  - @resumes.each do |resume|
+    %tr
+      %td=resume.id
+      %td
+        = link_to 'Просмотреть', resume
+        = link_to 'Edit', edit_resume_path(resume)
+        = link_to 'Destroy', resume, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Resume', new_resume_path
