@@ -1,13 +1,9 @@
 class ResumesController < ApplicationController
+  before_filter :authenticate_user!
   # GET /resumes
   # GET /resumes.json
   def index
-    @resumes = Resume.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @resumes }
-    end
+    @resumes = current_user.resumes.all
   end
 
   # GET /resumes/1
@@ -40,7 +36,7 @@ class ResumesController < ApplicationController
   # POST /resumes
   # POST /resumes.json
   def create
-    @resume = Resume.new(params[:resume])
+    @resume = Resume.new(params[:resume].merge(user: current_user))
 
     respond_to do |format|
       if @resume.save

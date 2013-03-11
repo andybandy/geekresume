@@ -1,0 +1,22 @@
+.navbar
+  .navbar-inner
+    .container
+      %ul.nav
+        %li
+          = link_to "Главная", "/"
+        - if user_signed_in? 
+          %li
+            = link_to "Резюме", resumes_path
+      %ul.nav.pull-right
+        - if user_signed_in?
+          %li.dropdown
+            %a.dropddown-toggle{ data: { toggle: "dropdown" }, href: "/" }
+              = current_user.email
+              %b.caret
+            %ul.dropdown-menu
+              %li
+                = link_to "Выйти", destroy_user_session_path, method: :delete
+        - else
+          %li
+            = link_to "Войти", new_user_session_path
+

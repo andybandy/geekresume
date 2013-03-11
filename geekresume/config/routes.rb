@@ -1,6 +1,8 @@
 Geekresume::Application.routes.draw do
+  devise_for :users
+
   resources :resumes
-  root :to => "resumes#index"
+  root :to => "static#homepage"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
