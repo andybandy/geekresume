@@ -1,0 +1,24 @@
+#box_login
+  .container
+    .span12.box_wrapper
+      .span12.box
+        %div
+          .head
+            = content_tag :h4, "Вход"
+          .form
+            = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+              = devise_error_messages!
+              -# Исправть в css стили чтобы нормально отображался type=email
+              -# И затем исправить text_fields на email_field
+              = f.text_field :email, autofocus: true, placeholder: "Email"
+              = f.password_field :password, placeholder: "Пароль"
+              .remember
+                .left
+                  = f.check_box :remember_me
+                  = f.label :remember_me, "Remember me"
+                .right
+                  = link_to "Забыли пароль?", new_user_password_path
+              = f.submit "Войти", class: "btn"
+      %p.already
+        Нет аккаунта?
+        = link_to "Регистрация", new_user_registration_path

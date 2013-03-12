@@ -1,2 +1,14 @@
-%h1 Static#home_page
-%p Find me in app/views/static/home_page.html.haml
+#hero
+  .container
+    .span12
+      .row
+        .span6
+          = image_tag "/assets/slide1.png"
+        .span4
+          = content_tag :h1, "Resume from markdown!"
+          = content_tag :p, "Ваше резюме под системой контроля версий."
+          = link_to "Регистрация", new_user_registration_path, class: "btn btn-success btn-large"
+#intro
+  .container
+    %h1
+      Measure is a beautiful Wrapbootstrap theme for businesses and creative professionals.

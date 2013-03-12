@@ -5,13 +5,12 @@
         %li
           = link_to "/" do
             = image_tag "/assets/brand.png"
-        - if user_signed_in? 
-          %li
-            = link_to "Резюме", resumes_path
       %ul.nav.pull-right
         - if user_signed_in?
+          %li
+            = link_to "Мои Резюме", resumes_path
           %li.dropdown
-            %a.dropddown-toggle{ data: { toggle: "dropdown" }, href: "/" }
+            %a.dropdown-toggle{ data: { toggle: "dropdown" }, href: "/" }
               = current_user.email
               %b.caret
             %ul.dropdown-menu
@@ -19,5 +18,6 @@
                 = link_to "Выйти", destroy_user_session_path, method: :delete
         - else
           %li
-            = link_to "Войти", new_user_session_path
+            = link_to "Войти", new_user_session_path, class: "btn-header"
+            = link_to "Регистрация", new_user_registration_path, class: "btn-header"
 
