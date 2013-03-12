@@ -26,6 +26,10 @@ class Resume < ActiveRecord::Base
     @repo ||= Grit::Repo.new path_to_repo
   end
 
+  def content
+    (repo.tree / "resume.md").data
+  end
+
   private
 
   def init_bare_repo

@@ -77,6 +77,8 @@ GEM
     pandoc-ruby (0.6.0)
     polyglot (0.3.3)
     posix-spawn (0.3.6)
+    quiet_assets (1.0.1)
+      railties (~> 3.1)
     rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -137,6 +139,7 @@ DEPENDENCIES
   haml-rails
   jquery-rails
   pandoc-ruby
+  quiet_assets
   rails (= 3.2.11)
   sass-rails (~> 3.2.3)
   settingslogic

@@ -10,11 +10,6 @@ class ResumesController < ApplicationController
   # GET /resumes/1.json
   def show
     @resume = Resume.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @resume }
-    end
   end
 
   # GET /resumes/new
