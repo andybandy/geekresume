@@ -1,1 +1,26 @@
-= @resume.content_html.html_safe
+#resumes
+  .container
+    %h3.header
+      %span
+        = link_to "Мои Резюме", resumes_path
+        \/
+        = @resume.title
+    %hr
+    - if @resume.has_content?
+      .well
+        = @resume.content_html.html_safe
+    - else
+      %h4 Добавить новое резюме
+      .well
+        .code
+          touch resume.md
+          %br
+          git init
+          %br
+          git add resume.md
+          %br
+          git commit -m "first commit"
+          %br
+          git remote add origin
+          %br
+          = "git remote add origin git@geekresume.ru:#{@resume.path_with_namespace}.git"
