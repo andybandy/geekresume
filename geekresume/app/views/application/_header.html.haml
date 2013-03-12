@@ -1,9 +1,10 @@
-.navbar
-  .navbar-inner
+.navbar.navbar-fixed-top 
+  .navbar-inner 
     .container
       %ul.nav
         %li
-          = link_to "Главная", "/"
+          = link_to "/" do
+            = image_tag "/assets/brand.png"
         - if user_signed_in? 
           %li
             = link_to "Резюме", resumes_path
