@@ -30,7 +30,6 @@ GEM
       multi_json (~> 1.0)
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
-    blankslate (3.1.2)
     bootstrap-sass (2.3.0.1)
       sass (~> 3.2)
     builder (3.0.4)
@@ -50,11 +49,6 @@ GEM
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
-    gitolite (1.1.0)
-      gratr19 (~> 0.4.4.1)
-      grit (~> 2.5.0)
-      hashery (~> 1.5.0)
-    gratr19 (0.4.4.1)
     grit (2.5.0)
       diff-lcs (~> 1.1)
       mime-types (~> 1.15)
@@ -66,8 +60,6 @@ GEM
       activesupport (>= 3.1, < 4.1)
       haml (>= 3.1, < 4.1)
       railties (>= 3.1, < 4.1)
-    hashery (1.5.0)
-      blankslate
     hike (1.2.1)
     i18n (0.6.4)
     journey (1.0.4)
@@ -115,6 +107,7 @@ GEM
       railties (~> 3.2.0)
       sass (>= 3.1.10)
       tilt (~> 1.3)
+    settingslogic (2.0.9)
     sprockets (2.2.2)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -140,12 +133,12 @@ DEPENDENCIES
   bootstrap-sass (~> 2.3.0.1)
   coffee-rails (~> 3.2.1)
   devise
-  gitolite
   grit
   haml-rails
   jquery-rails
   pandoc-ruby
   rails (= 3.2.11)
   sass-rails (~> 3.2.3)
+  settingslogic
   sqlite3
   uglifier (>= 1.0.3)

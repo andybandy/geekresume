@@ -1,0 +1,5 @@
+default: &default
+  repos_path: "/home/artkey/repos"
+
+development:
+  <<: *default 

@@ -1,14 +1,23 @@
-%h1 Мои резюме
-%table.table
-  %tr
-    %th id
-    %th Действия
-  - @resumes.each do |resume|
-    %tr
-      %td=resume.id
-      %td
-        = link_to 'Просмотреть', resume
-        = link_to 'Edit', edit_resume_path(resume)
-        = link_to 'Destroy', resume, method: :delete, data: { confirm: 'Are you sure?' }
-%br/
-= link_to 'New Resume', new_resume_path
+#resumes
+  .container
+    %h1.section_header.left 
+      %span Резюме
+      %hr.right.visible-desktop
+    - if @resumes.any? 
+      %table.table
+        %tr
+          %th{ width: "75%"} Название
+          %th Действия
+        - @resumes.each do |resume|
+          %tr
+            %td=resume.title
+            %td
+              = link_to resume do
+                %i.icon-list-alt
+              = link_to resume, method: :delete, data: { confirm: 'Are you sure?' } do
+                %i.icon-trash
+    - else
+      = content_tag :span, "Нет ни одного резюме, добавьте первое!"
+      %br/
+    %br/
+    = link_to 'Новое резюме', new_resume_path, class: "btn btn-success"

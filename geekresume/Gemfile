@@ -11,11 +11,11 @@ gem "haml-rails"
 # generate html from markdown
 gem 'pandoc-ruby'
 
-# interface to work with gitolite
-gem 'gitolite'
-
+#work with git repo
 gem 'grit'
 
+# work with settings
+gem 'settingslogic'
 
 # auth
 gem "devise"

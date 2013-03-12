@@ -1,0 +1,10 @@
+.row.form
+  .span6
+    = form_for @resume, html: {class: "form-horizontal"} do |f|
+      .control-group
+        = f.label :title, "Название", class: "control-label"
+        .controls
+          = f.text_field :title
+      .control-group
+        .controls.action
+          = f.submit "Создать", class: "btn btn-success"
