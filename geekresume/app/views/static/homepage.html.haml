@@ -2,13 +2,31 @@
   .container
     .span12
       .row
-        .span6
-          = image_tag "/assets/slide1.png"
+        .span7
+          = image_tag "/assets/landing_image.png"
         .span4
           = content_tag :h1, "Resume from markdown!"
-          = content_tag :p, "Ваше резюме под системой контроля версий."
+          %p
+            Ваше резюме под системой контроля версий, управляйте
+            почтовым рассылками, доступом к резюме работодателей.
+          %p
+            Ваше резюме под системой контроля версий, управляйте
+            почтовым рассылками, доступом к резюме работодателей.
+          = link_to "Вход", new_user_session_path, class: "btn btn-primary btn-large"
           = link_to "Регистрация", new_user_registration_path, class: "btn btn-success btn-large"
-#intro
+#testimonials
   .container
-    %h1
-      Measure is a beautiful Wrapbootstrap theme for businesses and creative professionals.
+    .phrases_wrapper
+      .phrase
+        .row
+          .span7
+            %p.testimony
+              There are many variations of passages words which don't 
+              look even slightly passage of anything embarrassing hidden in the middle.
+          .pic
+            .span3.offset1
+              = image_tag "/assets/phrase_pic1.jpg", class: "img-circle"
+              %span.name
+                Кейдунов Артем
+              %span.position
+                Ruby developer
