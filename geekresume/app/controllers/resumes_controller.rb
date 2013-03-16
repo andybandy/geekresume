@@ -1,19 +1,19 @@
 class ResumesController < ApplicationController
-  before_filter :authenticate_user!
-  # GET /resumes
-  # GET /resumes.json
+  before_filter :authenticate_user!, :except => [:public ]
+
+  def public
+    @resume = Resume.find_by_checksum(params[:checksum])
+    redirect_to root_url unless @resume
+  end
+
   def index
     @resumes = current_user.resumes.all
   end
 
-  # GET /resumes/1
-  # GET /resumes/1.json
   def show
     @resume = Resume.find(params[:id])
   end
 
-  # GET /resumes/new
-  # GET /resumes/new.json
   def new
     @resume = Resume.new
 
@@ -23,13 +23,10 @@ class ResumesController < ApplicationController
     end
   end
 
-  # GET /resumes/1/edit
   def edit
     @resume = Resume.find(params[:id])
   end
 
-  # POST /resumes
-  # POST /resumes.json
   def create
     @resume = Resume.new(params[:resume].merge(user: current_user))
 

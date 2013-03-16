@@ -2,10 +2,18 @@
   .container
     %h3.header
       %span
-        = link_to "Мои Резюме", resumes_path
+        = link_to @resume.username, resumes_path
         \/
         = @resume.title
     %hr
+    .form-horizontal
+      .control-group
+        %label.control-label
+          Cсылка на резюме
+        .controls
+          .input-append
+            = text_field_tag 'public_link', resume_public_url(checksum: @resume.checksum), class: "input-xxlarge"
+            = link_to "Смотреть", resume_public_url(checksum: @resume.checksum), class: "btn", target: "_blank"
     - if @resume.has_content?
       .well
         = @resume.content_html.html_safe

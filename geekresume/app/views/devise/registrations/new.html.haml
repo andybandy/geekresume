@@ -11,6 +11,7 @@
               -# Исправть в css стили чтобы нормально отображался type=email
               -# И затем исправить text_fields на email_field
               = f.text_field :email, autofocus: true, placeholder: "Email"
+              = f.text_field :username, placeholder: "Username"
               = f.password_field :password, placeholder: "Пароль"
               = f.password_field :password_confirmation, placeholder: "Подтверждение пароля"
               = f.submit "Зарегестрироваться", class: "btn"

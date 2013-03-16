@@ -1,5 +1,6 @@
 @import "bootstrap";
-
+@import "theme";
+@import url(http://fonts.googleapis.com/css?family=Ubuntu);
 .navbar .container {
   width: 960px;
 }
@@ -13,4 +14,6 @@
   border-bottom: 2px solid white;
 }
 
-
+body {
+  font-family: 'Ubuntu', sans-serif !important;
+}

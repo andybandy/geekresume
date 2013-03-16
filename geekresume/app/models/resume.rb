@@ -11,13 +11,16 @@ class Resume < ActiveRecord::Base
                     uniqueness: { scope: :user_id }
 
   after_create :init_bare_repo
+  before_create :generate_checksum
 
   def content_html
     PandocRuby.convert(content, :from => :markdown, :to => :html)
   end
 
+  delegate :username, to: :user
+
   def namespace
-    @namespace ||= "artkey/#{title.parameterize}"
+    @namespace ||= "#{username}/#{title.parameterize}"
   end
 
   def path_with_namespace
@@ -44,6 +47,10 @@ class Resume < ActiveRecord::Base
 
   def init_bare_repo
     Grit::Repo.init_bare path_to_repo
+  end
+
+  def generate_checksum
+    self.checksum = Digest::SHA1.hexdigest (Time.now.to_s + title.parameterize)
   end
 
 end
