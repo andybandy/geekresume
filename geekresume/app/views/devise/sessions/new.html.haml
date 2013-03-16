@@ -7,7 +7,8 @@
             = content_tag :h4, "Вход"
           .form
             = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
-              = devise_error_messages!
+              - flash.each do|type, message|
+                = flash_message type, message
               -# Исправть в css стили чтобы нормально отображался type=email
               -# И затем исправить text_fields на email_field
               = f.text_field :email, autofocus: true, placeholder: "Email"
