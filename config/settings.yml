@@ -1,0 +1,5 @@
+default: &default
+  repos_path: "/Users/artyomkeydunov/repos"
+
+development:
+  <<: *default 

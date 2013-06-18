@@ -1,0 +1,18 @@
+/.bundle
+/.idea
+.DS_Store
+/log/*.log
+/tmp
+/config/database.yml
+/config/instance.yml
+/public/assets
+/db/schema.rb
+/.foot
+/.locale
+/public/clicktale
+*.sqlite3
+
+# Ignore vim files
+*~
+*.swp
+*.swo
