@@ -1,0 +1,23 @@
+.container
+  %table.table
+    - if @keys.any?
+      %tr
+        %th{ width: "25%"} Название
+        %th{ width: "50%"} Fingerprint
+        %th Действия
+      - @keys.each do |key|
+        %tr
+          %td=key.title
+          %td=key.fingerprint
+          %td
+            = link_to key, method: :delete do
+              %i.icon-trash
+    - else
+      = content_tag :span, "Нет добавленных shh ключей"
+      %br/
+  %br/
+  = link_to "Добавить SSH ключ", new_key_path, class: "btn btn-success"
+
+
+
+

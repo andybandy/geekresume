@@ -2,8 +2,10 @@ Geekresume::Application.routes.draw do
   devise_for :users
 
   resources :resumes
+  resources :keys
   root to: "resumes#index", constraints: lambda { |r| r.env["warden"].authenticate? }
   root to: "static#homepage"
+
   match 'resume/:checksum' => 'resumes#public', as: :resume_public
 
 

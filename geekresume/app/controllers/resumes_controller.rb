@@ -1,5 +1,6 @@
 class ResumesController < ApplicationController
-  before_filter :authenticate_user!, :except => [:public ]
+  before_filter :authenticate_user!, :except => [:public]
+  layout false, only: :public
 
   def public
     @resume = Resume.find_by_checksum(params[:checksum])

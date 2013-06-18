@@ -10,4 +10,5 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
   validates :username, presence: true, uniqueness: true
   has_many :resumes
+  has_many :keys
 end

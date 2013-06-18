@@ -7,13 +7,15 @@
             = image_tag "/assets/brand.png"
       %ul.nav.pull-right
         - if user_signed_in?
-          %li
-            = link_to "Мои Резюме", resumes_path
           %li.dropdown
             %a.dropdown-toggle{ data: { toggle: "dropdown" }, href: "/" }
               = current_user.username
               %b.caret
             %ul.dropdown-menu
+              %li
+                = link_to "Профиль", destroy_user_session_path, method: :delete
+              %li
+                = link_to "SSH ключи", keys_path
               %li
                 = link_to "Выйти", destroy_user_session_path, method: :delete
         - else

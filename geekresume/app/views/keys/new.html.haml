@@ -1,0 +1,9 @@
+.container
+  %h2.section_header
+  .row.form
+    .span12
+      = simple_form_for(@key, :html => {:class => 'form-horizontal' }) do |f|
+        = f.input :title, label: 'Название', input_html: { class: "input-xxlarge" }
+        = f.input :key,input_html: { class: "input-xxlarge", rows: 10 }, label: "Ключ"
+        .actions
+          = f.button :submit, "Добавить ключ", class: "btn btn-success"
