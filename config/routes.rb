@@ -3,10 +3,10 @@ Geekresume::Application.routes.draw do
 
   resources :resumes
   resources :keys
-  root to: "resumes#index", constraints: lambda { |r| r.env["warden"].authenticate? }
-  root to: "static#homepage"
+  root to: "resumes#index", constraints: lambda { |r| r.env["warden"].authenticate? }, as: nil
+  root to: "static#homepage", as: nil
 
-  match 'resume/:checksum' => 'resumes#public', as: :resume_public
+  get 'resume/:checksum' => 'resumes#public', as: :resume_public
 
 
 

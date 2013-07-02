@@ -1,7 +1,7 @@
 ruby '2.0.0'
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.13'
+gem 'rails', '4.0.0'
 
 gem 'sqlite3'
 gem "haml-rails"
@@ -16,17 +16,15 @@ gem 'grit'
 gem 'settingslogic'
 
 # auth
-gem "devise"
+gem "devise", github: "plataformatec/devise", branch: "rails4"
 
 # forms
-gem 'simple_form'
+gem 'simple_form', github: "plataformatec/simple_form"
 
-group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
-  gem 'bootstrap-sass', '~> 2.3.0.1'
-  gem 'uglifier', '>= 1.0.3'
-end
+gem 'sass-rails',   '~> 4.0.0'
+gem 'coffee-rails', '~> 4.0.0'
+gem 'bootstrap-sass', '~> 2.3.0.1'
+gem 'uglifier', '>= 1.3.0'
 
 gem 'jquery-rails'
 

@@ -8,7 +8,7 @@ class ResumesController < ApplicationController
   end
 
   def index
-    @resumes = current_user.resumes.all
+    @resumes = current_user.resumes
   end
 
   def show
@@ -29,44 +29,35 @@ class ResumesController < ApplicationController
   end
 
   def create
-    @resume = Resume.new(params[:resume].merge(user: current_user))
+    @resume = Resume.new(resume_params.merge(user: current_user))
 
-    respond_to do |format|
-      if @resume.save
-        format.html { redirect_to @resume, notice: 'Resume was successfully created.' }
-        format.json { render json: @resume, status: :created, location: @resume }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @resume.errors, status: :unprocessable_entity }
-      end
+    if @resume.save
+      redirect_to @resume, notice: 'Resume was successfully created.'
+    else
+      render :new
     end
   end
 
-  # PUT /resumes/1
-  # PUT /resumes/1.json
   def update
     @resume = Resume.find(params[:id])
 
-    respond_to do |format|
-      if @resume.update_attributes(params[:resume])
-        format.html { redirect_to @resume, notice: 'Resume was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @resume.errors, status: :unprocessable_entity }
-      end
+    if @resume.update_attributes(resume_params)
+      redirect_to @resume, notice: 'Resume was successfully updated.'
+    else
+      render :edit
     end
   end
 
-  # DELETE /resumes/1
-  # DELETE /resumes/1.json
   def destroy
     @resume = Resume.find(params[:id])
     @resume.destroy
 
-    respond_to do |format|
-      format.html { redirect_to resumes_url }
-      format.json { head :no_content }
-    end
+    redirect_to resumes_url
+  end
+
+  private
+
+  def resume_params
+    params.require(:resume).permit(:title)
   end
 end

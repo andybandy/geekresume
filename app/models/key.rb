@@ -1,5 +1,4 @@
 class Key < ActiveRecord::Base
-  attr_accessible :key, :title, :user_id
   belongs_to :user
   validates :title, presence: true, length: { within: 0..255 }
   validates :key, presence: true, length: { within: 0..5000 }, format: { :with => /ssh-.{3} / }, uniqueness: true

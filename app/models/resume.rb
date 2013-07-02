@@ -5,7 +5,6 @@
 # Resume#has_content? - проверяет есть ли файл с резюме в репе
 # Resume#content_html - html формат резюме
 class Resume < ActiveRecord::Base
-  attr_accessible :title, :user
   belongs_to :user
   validates :title, presence: true,
                     uniqueness: { scope: :user_id }
