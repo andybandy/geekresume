@@ -40,4 +40,8 @@ group :test do
   gem 'launchy'
 end
 
-#gem 'quiet_assets', :group => :development
+group :development do
+  gem 'capistrano'
+  gem 'rvm-capistrano'
+end
+
