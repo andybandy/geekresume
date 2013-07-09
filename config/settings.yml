@@ -1,8 +1,0 @@
-default: &default
-  repos_path: "/Users/artyomkeydunov/repos"
-
-development:
-  <<: *default
-
-test:
-  repos_path: <%= "#{Rails.root}/tmp/repos" %>
