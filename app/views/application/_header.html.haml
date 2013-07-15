@@ -1,10 +1,10 @@
-.navbar.navbar-fixed-top 
-  .navbar-inner 
+.navbar.navbar-fixed-top
+  .navbar-inner
     .container
       %ul.nav
         %li
           = link_to "/" do
-            = image_tag "/assets/brand.png"
+            = image_tag "brand.png"
       %ul.nav.pull-right
         - if user_signed_in?
           %li.dropdown
