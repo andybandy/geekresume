@@ -149,8 +149,7 @@
     width: 100%;
 }
 #box_login .box .form .remember .left{
-	float: left;
-    width: 45%;
+  float: left;
 }
 #box_login .box .form .remember .left input[type="checkbox"]{
 	float: left;
@@ -167,11 +166,10 @@
 #box_login .box .form .remember .right{
 	float: right;
 }
-#box_login .box .form .remember .right a{
+#box_login .box .form .remember a{
 	color: #7EA05E;
-	float: right;
-    line-height: 16px;
-    margin: 3px 0 0;
+  line-height: 16px;
+  margin: 3px 0 0;
 	font-style: 14px;
 	font-weight: bold;
 	
