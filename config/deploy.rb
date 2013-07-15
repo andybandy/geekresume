@@ -14,8 +14,7 @@ set :rvm_ruby_string, '2.0.0'
 set :use_sudo, false
 set :normalize_asset_timestamps, false
 
-# set :scm, :git # You can set :scm explicitly or Capistrano will make an intelligent guess based on known version control directory names
-# Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
+default_run_options[:pty]
 
 role :app, "178.79.182.69"                          # This may be the same as your `Web` server
 role :db,  "178.79.182.69", :primary => true        # This is where Rails migrations will run
@@ -30,11 +29,12 @@ after "deploy:restart", "deploy:cleanup"
 task :release_prepare_app, :roles => :app do
   run "ln -s #{shared_path}/database.yml #{release_path}/config/database.yml"
   run "ln -s #{shared_path}/settings.yml #{release_path}/config/settings.yml"
+
   run "cd #{release_path} && bundle install"
-  run "cd #{release_path} && bundle exec rake assets:precompile"
+  run "cd #{release_path} && RAILS_ENV=production bundle exec rake assets:precompile"
 end
 task :release_prepare_db, :roles => :db do
-  run "cd #{release_path} && bundle exec rake db:create db:migrate"
+  run "cd #{release_path} && RAILS_ENV=production bundle exec rake db:create db:migrate"
 end
 before "deploy:create_symlink", "release_prepare_app"
 before "deploy:create_symlink", "release_prepare_db"
